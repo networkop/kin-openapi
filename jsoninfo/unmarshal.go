@@ -73,7 +73,7 @@ func (decoder *ObjectDecoder) DecodeStructFieldsAndExtensions(value interface{})
 			continue
 		}
 
-		fmt.Printf("field data %v\n", fieldData)
+		fmt.Printf("field data %v\n", string(fieldData))
 
 		// Unmarshal
 		if field.TypeIsUnmarshaller {
