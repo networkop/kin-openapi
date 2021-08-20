@@ -61,6 +61,7 @@ func (decoder *ObjectDecoder) DecodeStructFieldsAndExtensions(value interface{})
 	remainingFields := decoder.remainingFields
 	for fieldIndex, field := range fields {
 		// Fields without JSON tag are ignored
+		fmt.Printf("processing field %v", field)
 		if !field.HasJSONTag {
 			continue
 		}
