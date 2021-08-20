@@ -39,6 +39,7 @@ func (decoder *ObjectDecoder) DecodeExtensionMap() map[string]json.RawMessage {
 }
 
 func (decoder *ObjectDecoder) DecodeStructFieldsAndExtensions(value interface{}) error {
+	fmt.Printf("processing value  %v\n", value)
 	reflection := reflect.ValueOf(value)
 	if reflection.Kind() != reflect.Ptr {
 		panic(fmt.Errorf("value %T is not a pointer", value))
@@ -61,7 +62,7 @@ func (decoder *ObjectDecoder) DecodeStructFieldsAndExtensions(value interface{})
 	remainingFields := decoder.remainingFields
 	for fieldIndex, field := range fields {
 		// Fields without JSON tag are ignored
-		fmt.Printf("processing field %v", field)
+		fmt.Printf("processing field %v\n", field)
 		if !field.HasJSONTag {
 			continue
 		}
